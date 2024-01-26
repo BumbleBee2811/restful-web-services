@@ -3,6 +3,7 @@ package com.rest.webservices.restfulwebservices.bean;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Post {
@@ -11,6 +12,7 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @Size(min = 10, message = "Minimum length of description should be 10")
     private String description;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -34,5 +36,13 @@ public class Post {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

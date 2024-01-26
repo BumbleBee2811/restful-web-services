@@ -25,7 +25,7 @@ public class User {
     @JsonIgnore
     private List<Post> posts;
 
-    public User(){
+    public User() {
     }
 
     public User(Integer id, String name, LocalDate birthDate) {
