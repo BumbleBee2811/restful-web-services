@@ -1,7 +1,7 @@
 package com.rest.webservices.restfulwebservices.controller;
 
 import com.rest.webservices.restfulwebservices.bean.User;
-import com.rest.webservices.restfulwebservices.dao.UserDaoService;
+import com.rest.webservices.restfulwebservices.service.UserService;
 import com.rest.webservices.restfulwebservices.exceptions.UserNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.EntityModel;
@@ -15,32 +15,33 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class UserController {
 
     @Autowired
-    private UserDaoService userDaoService;
+    private UserService userService;
 
     @GetMapping(path = "/users")
     public List<User> retrieveAllUsers() {
-        return userDaoService.findAll();
+        return userService.findAll();
     }
 
     @GetMapping(path = "/users/{id}")
     public EntityModel<User> retrieveUser(@PathVariable Integer id) {
-        User user = userDaoService.findOne(id);
-        if (user == null){
+        Optional<User> user = userService.findOne(id);
+        if (!user.isPresent()){
             throw new UserNotFoundException(String.format("User id %s is not valid",id));
         }
-        EntityModel<User> entityModel = EntityModel.of(user);
+        EntityModel<User> entityModel = EntityModel.of(user.get());
         WebMvcLinkBuilder link = WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(this.getClass()).retrieveAllUsers());
         entityModel.add(link.withRel("all-users"));
         return entityModel;
     }
     @PostMapping(path = "/users")
     public ResponseEntity<User> createUser(@Valid @RequestBody User user){
-        User savedUser = userDaoService.save(user);
+        User savedUser = userService.save(user);
         URI location = ServletUriComponentsBuilder
                 .fromCurrentRequest()
                 .path("/{id}")
@@ -56,6 +57,6 @@ public class UserController {
 
     @DeleteMapping(path = "/users/{id}")
     public void deleteUser(@PathVariable Integer id) {
-        userDaoService.deleteById(id);
+        userService.deleteById(id);
     }
 }
