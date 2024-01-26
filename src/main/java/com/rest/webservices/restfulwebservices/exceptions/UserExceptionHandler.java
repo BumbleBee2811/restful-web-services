@@ -22,7 +22,19 @@ public class UserExceptionHandler {
                 new ErrorDetails(
                         LocalDateTime.now(),
                         e.getMessage(),
-                        "Try with a valid Id"
+                        "Contact the database team for clarification"
+                ),
+                HttpStatus.NOT_FOUND
+        );
+    }
+
+    @ExceptionHandler(PostNotFoundException.class)
+    public final ResponseEntity<ErrorDetails> handlePostNotFoundExceptions(PostNotFoundException e) {
+        return new ResponseEntity<>(
+                new ErrorDetails(
+                        LocalDateTime.now(),
+                        e.getMessage(),
+                        "Try with a valid post id"
                 ),
                 HttpStatus.NOT_FOUND
         );
