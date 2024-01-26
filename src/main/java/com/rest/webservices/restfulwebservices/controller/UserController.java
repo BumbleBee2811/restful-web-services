@@ -1,5 +1,6 @@
 package com.rest.webservices.restfulwebservices.controller;
 
+import com.rest.webservices.restfulwebservices.bean.Post;
 import com.rest.webservices.restfulwebservices.bean.User;
 import com.rest.webservices.restfulwebservices.service.UserService;
 import com.rest.webservices.restfulwebservices.exceptions.UserNotFoundException;
@@ -58,5 +59,14 @@ public class UserController {
     @DeleteMapping(path = "/users/{id}")
     public void deleteUser(@PathVariable Integer id) {
         userService.deleteById(id);
+    }
+
+    @GetMapping(path = "/users/{id}/posts")
+    public List<Post> getPostsForUser(@PathVariable Integer id) {
+        Optional<User> user = userService.findOne(id);
+        if (!user.isPresent()){
+            throw new UserNotFoundException(String.format("User id %s is not valid",id));
+        }
+        return user.get().getPosts();
     }
 }
