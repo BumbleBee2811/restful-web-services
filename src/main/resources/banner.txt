@@ -1,0 +1,13 @@
+
+${AnsiColor.RED}${AnsiStyle.BOLD}     __  __ _____  ______ ____     ___     _   __ ____     ____   ____  _____ ______
+${AnsiStyle.BOLD}${AnsiColor.RED}    / / / // ___/ / ____// __ \   /   |   / | / // __ \   / __ \ / __ \/ ___//_  __/
+${AnsiStyle.BOLD}${AnsiColor.RED}   / / / / \__ \ / __/  / /_/ /  / /| |  /  |/ // / / /  / /_/ // / / /\__ \  / /
+${AnsiStyle.BOLD}${AnsiColor.RED}  / /_/ / ___/ // /___ / _, _/  / ___ | / /|  // /_/ /  / ____// /_/ /___/ / / /
+${AnsiStyle.BOLD}${AnsiColor.RED}  \____/ /____//_____//_/ |_|  /_/  |_|/_/ |_//_____/  /_/     \____//____/ /_/
+${AnsiStyle.BOLD}${AnsiColor.BRIGHT_GREEN}  :::::::: Running Spring Boot ${spring-boot.formatted-version} :::::: User-Post API ${application.version} :::::::::::
+${AnsiStyle.FAINT}${AnsiColor.BRIGHT_CYAN}      __  ___ _                           _____                     _                ___     ____   ____
+${AnsiStyle.FAINT}${AnsiColor.BRIGHT_CYAN}     /  |/  /(_)_____ _____ ____         / ___/ ___   _____ _   __ (_)_____ ___     /   |   / __ \ /  _/
+${AnsiStyle.FAINT}${AnsiColor.BRIGHT_CYAN}    / /|_/ // // ___// ___// __ \ ______ \__ \ / _ \ / ___/| | / // // ___// _ \   / /| |  / /_/ / / /
+${AnsiStyle.FAINT}${AnsiColor.BRIGHT_CYAN}   / /  / // // /__ / /   / /_/ //_____/___/ //  __// /    | |/ // // /__ /  __/  / ___ | / ____/_/ /
+${AnsiStyle.FAINT}${AnsiColor.BRIGHT_CYAN}  /_/  /_//_/ \___//_/    \____/       /____/ \___//_/     |___//_/ \___/ \___/  /_/  |_|/_/    /___/
+${AnsiStyle.FAINT}${AnsiColor.BRIGHT_CYAN} ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
