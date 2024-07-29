@@ -5,6 +5,13 @@ VALUES
 (102,current_date(),'Shubhman'),
 (103,current_date(),'Rahul');
 
+INSERT INTO user_login (id,user_name, password, email_id)
+VALUES
+(100,'Rohit', 'pass123','rohit@test.com'),
+(101,'Yashashvi','pass123','yashashvi@test.com'),
+(102,'Shubhman','pass123','shubhman@test.com'),
+(103,'Rahul','pass123','rahul@test.com');
+
 INSERT INTO post (id,description,user_id)
 VALUES
 (1,'I want to learn AWS',100),

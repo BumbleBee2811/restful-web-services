@@ -1,5 +1,8 @@
 package com.rest.webservices.restfulwebservices.bean;
 
+import java.util.*;
+import java.util.stream.Collectors;
+
 public class HelloWorldBean {
     private String message;
 
@@ -21,4 +24,5 @@ public class HelloWorldBean {
                 "message='" + message + '\'' +
                 '}';
     }
+
 }
